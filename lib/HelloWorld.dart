@@ -9,21 +9,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Recipe book",
-      home: RecipeBook(),
+      title: "App module World",
+      home: helloWorld(),
     );
   }
 }
 
-class RecipeBook extends StatelessWidget {
-  const RecipeBook({super.key});
+class helloWorld extends StatelessWidget {
+  const helloWorld({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orange,
-        title: Text("Recipe book", style: TextStyle(color: Colors.white)),
+        title: Text("Create Hello World Module", style: TextStyle(color: Colors.white)),
       ),
     );
   }
