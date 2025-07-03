@@ -20,10 +20,10 @@ class helloWorld extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.orange,
-        title: Text("Create Hello World Module", style: TextStyle(color: Colors.white)),
+    return Container(
+      child: Text(
+        "Create Hello World Module",
+        style: TextStyle(color: Colors.black),
       ),
     );
   }
