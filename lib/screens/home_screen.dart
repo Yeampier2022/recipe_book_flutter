@@ -1,11 +1,25 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:recipe_book/screens/repicpe_detail.dart';
+
+import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
+  Future<List<dynamic>> FetchRecipes() async {
+    final url = Uri.parse('http://localhost:5555/recipes');
+
+    final response = await http.get(url);
+    final data = jsonDecode(response.body);
+
+    return data['recipes'];
+  }
+
   @override
   Widget build(BuildContext context) {
+    FetchRecipes();
     return Scaffold(
       body: Column(
         children: <Widget>[_RecipesCard(context), _RecipesCard(context)],
@@ -38,7 +52,9 @@ class HomeScreen extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => RecipeDetail(recipeName: 'Lasagna')),
+          MaterialPageRoute(
+            builder: (context) => RecipeDetail(recipeName: 'Lasagna'),
+          ),
         );
       },
       child: Padding(
