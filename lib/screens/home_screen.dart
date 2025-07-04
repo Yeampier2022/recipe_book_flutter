@@ -11,10 +11,20 @@ class HomeScreen extends StatelessWidget {
   Future<List<dynamic>> FetchRecipes() async {
     final url = Uri.parse('http://localhost:5555/recipes');
 
-    final response = await http.get(url);
-    final data = jsonDecode(response.body);
+    try {
+      final response = await http.get(url);
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
 
-    return data['recipes'];
+        return data['recipes'];
+      } else {
+        print('Error ${response.statusCode}');
+        return [];
+      }
+    } catch (e) {
+      print('Error in request');
+      return [];
+    }
   }
 
   @override
@@ -25,12 +35,18 @@ class HomeScreen extends StatelessWidget {
         builder: (context, snapshot) {
           final recipes = snapshot.data ?? [];
 
-          return ListView.builder(
-            itemCount: recipes.length,
-            itemBuilder: (context, index) {
-              return _RecipesCard(context, recipes[index]);
-            },
-          );
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+            return const Center(child: Text('No Recipes found'));
+          } else {
+            return ListView.builder(
+              itemCount: recipes.length,
+              itemBuilder: (context, index) {
+                return _RecipesCard(context, recipes[index]);
+              },
+            );
+          }
         },
       ),
 
