@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 
 class RecipeDetail extends StatelessWidget {
   final String recipeName;
-  const RecipeDetail({super.key, required this.recipeName});
+  final String recipeDescription;
+  final String img;
+  const RecipeDetail({
+    super.key,
+    required this.recipeName,
+    required this.recipeDescription,
+    required this.img,
+  });
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,6 +23,15 @@ class RecipeDetail extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
+      ),
+
+      body: Column(
+        children: <Widget>[
+          Text(recipeName),
+
+          Image.network(img, height: 500, width: 500),
+          Text(recipeDescription),
+        ],
       ),
     );
   }
