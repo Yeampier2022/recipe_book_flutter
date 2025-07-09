@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 
+// class RecipeDetailState extends State<RecipeDetail> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container();
+//   }
+// }
+
 class RecipeDetail extends StatelessWidget {
   final String recipeName;
-  final String recipeDescription;
-  final String img;
+
   const RecipeDetail({
     super.key,
     required this.recipeName,
-    required this.recipeDescription,
-    required this.img,
   });
   @override
   Widget build(BuildContext context) {
@@ -25,14 +29,13 @@ class RecipeDetail extends StatelessWidget {
         ),
       ),
 
-      body: Column(
-        children: <Widget>[
-          Text(recipeName),
+      // body: Column(
+      //   children: <Widget>[
+      //     Text(recipeName),
 
-          Image.network(img, height: 500, width: 500),
-          Text(recipeDescription),
-        ],
-      ),
+      //     Text(recipeDescription),
+      //   ],
+      // ),
     );
   }
 }

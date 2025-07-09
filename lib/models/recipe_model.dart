@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 
 @Material()
 class Recipe {
+  // String id;
   String name;
   String author;
   String image_link;
   List<String> recipeSteps;
 
   Recipe({
+    // required this.id,
     required this.name,
     required this.author,
     required this.image_link,
@@ -16,6 +18,7 @@ class Recipe {
 
   factory Recipe.fromJSON(Map<String, dynamic> json) {
     return Recipe(
+      // id: json['id'],
       name: json['name'],
       author: json['author'],
       image_link: json['image_link'],
@@ -25,6 +28,7 @@ class Recipe {
 
   Map<String, dynamic> toJson() {
     return {
+      // 'id': id,
       'name': name,
       'author': author,
       'image_link': image_link,
@@ -32,9 +36,10 @@ class Recipe {
     };
   }
 
-
   @override
-String toString() {
-  return 'Recipe{name: $name ,author: $author, image_link: $image_link, recipe $recipeSteps }';
-}
+  String toString() {
+    return
+    // 'Recipe{id: $id,name: $name ,author: $author, image_link: $image_link, recipe $recipeSteps }'
+    'Recipe{name: $name ,author: $author, image_link: $image_link, recipe $recipeSteps }';
+  }
 }
