@@ -59,11 +59,19 @@ class _RecipeDetailState extends State<RecipeDetail> {
         padding: EdgeInsets.all(18),
         child: Column(
           children: [
-            Image.network(widget.recipesData.image_link),
+            Image.network(
+              widget.recipesData.image_link,
+              height: 300,
+              fit: BoxFit.fill,
+            ),
             SizedBox(height: 8),
             Text(widget.recipesData.name),
             SizedBox(height: 8),
             Text('By ${widget.recipesData.author}'),
+            SizedBox(height: 8),
+
+            Text('${widget.recipesData.recipe}'),
+
           ],
         ),
       ),
