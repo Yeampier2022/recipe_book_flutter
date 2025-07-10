@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_book/providers/recipes_provider.dart';
 import 'package:recipe_book/screens/repicpe_detail.dart';
-import 'package:http/http.dart' as HTTP;
+import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -77,10 +77,10 @@ class HomeScreen extends StatelessWidget {
                 Container(
                   height: 125,
                   width: 100,
-                  // child: ClipRRect(
-                  //   borderRadius: BorderRadius.circular(12),
-                  //   child: Image.network(recipe.imageLink, fit: BoxFit.cover),
-                  // ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Image.network(recipe.image_link, fit: BoxFit.cover),
+                  ),
                 ),
                 SizedBox(width: 26),
                 Column(
