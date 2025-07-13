@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// This is my data model - each Recipe has an ID, name, 
+// author, image URL, and step-by-step instructions"
 @Material()
 class Recipe {
   int id;

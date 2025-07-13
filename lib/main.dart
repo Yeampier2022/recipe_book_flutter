@@ -9,6 +9,7 @@ void main() => runApp(const MyApp());
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+// "MaterialApp with custom theme and named routes for navigation"
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
